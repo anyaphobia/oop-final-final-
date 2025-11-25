@@ -16,7 +16,7 @@ public class Main {
             System.out.println("             MAIN MENU          ");
             System.out.println("================================");
             System.out.println("1 - Account Management");
-            System.out.println("2 - Available Literary Works");
+            System.out.println("2 - Asset Management");
             System.out.println("3 - Borrow a Literary Work");
             System.out.println("4 - Return a Literary Work");
             System.out.println("5 - Borrower History");

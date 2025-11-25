@@ -91,7 +91,7 @@ private void addUser() {
             return;
         }
 
-        System.out.println("\n===== ALL ACCOUNTS =====");
+        System.out.println("\n===== VIEW ALL ACCOUNTS =====");
         for (Person p : users) {
             p.displayInfo();
             System.out.println("----------------------------");

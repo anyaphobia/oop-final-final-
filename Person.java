@@ -1,6 +1,6 @@
 // this is the Person class (a blueprint for account holders in the library system)
-public class Person {  //setters and getters
-    // attributes
+public class Person {  //represents a library account holder
+    // attributes that store the data for each person
     private int id;
     private String fname;
     private String mname;
@@ -14,7 +14,7 @@ public class Person {  //setters and getters
     private boolean hasBorrowed = false;
     private Material borrowedMaterial = null;
 
-    //getters and setters
+    // SETTERS AND GETTERS
     public boolean isHasBorrowed() {
         return hasBorrowed;
     }
@@ -45,7 +45,7 @@ public class Person {  //setters and getters
         return this.numOfStrikes;
     }
 
-    // attribute for id
+    // SETTERS AND GETTERS
     public void setID(int newID) {
         this.id = newID;
     }
@@ -54,7 +54,6 @@ public class Person {  //setters and getters
         return this.id;
     }
 
-    //fname
     public void setFname(String newFname) {
         this.fname = newFname;
     }
@@ -62,7 +61,6 @@ public class Person {  //setters and getters
         return this.fname;
     }
 
-    //mname
     public void setMname(String newMname) {
         this.mname = newMname;
     }
@@ -70,7 +68,6 @@ public class Person {  //setters and getters
         return this.mname;
     }
 
-    //lname
     public void setLname(String newLname) {
         this.lname = newLname;
     }
@@ -105,8 +102,7 @@ public class Person {  //setters and getters
         return this.email;
     }
     
-
-    public Person() {
+    public Person() { //constructor initializes all attributes to default values
         this.id = 0;
         this.fname = "";
         this.mname = "";
@@ -118,7 +114,7 @@ public class Person {  //setters and getters
         this.numOfStrikes = 0;
     }
 
-    public void displayInfo() {
+    public void displayInfo() { //prints all the information
         System.out.println("ID: " + this.id);
         System.out.println("First Name: " + this.fname);
         System.out.println("Middle Name: " + this.mname);
@@ -130,7 +126,5 @@ public class Person {  //setters and getters
         System.out.println("Number of Violations: " + this.numOfStrikes);
     }
 
-
-
-
 }
+
