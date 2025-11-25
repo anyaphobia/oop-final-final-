@@ -51,7 +51,7 @@ private void addUser() {
         // Check full name uniqueness
         boolean duplicate = false;
         for (Person p : users) {
-            if (p.getFname().equalsIgnoreCase(fname) &&
+            if (p.getFname().equalsIgnoreCase(fname) && //used to compare p.getFname to the object inside the equalsIgnoreCase
                 p.getMname().equalsIgnoreCase(mname) &&
                 p.getLname().equalsIgnoreCase(lname)) {
                 duplicate = true;
@@ -68,7 +68,7 @@ private void addUser() {
             long cnumber = readUniqueContact();
             String email = readUniqueEmail();
 
-            Person person = new Person();
+            Person person = new Person(); //calls object to store new user
             person.setID(id);
             person.setFname(fname);
             person.setMname(mname);
@@ -78,7 +78,7 @@ private void addUser() {
             person.setCnumber(cnumber);
             person.setEmail(email);
 
-            users.add(person);
+            users.add(person); // allows to add users
             System.out.println("\nAccount added successfully! Your ID is: " + id);
             break; // exit the while loop
         }
@@ -86,7 +86,7 @@ private void addUser() {
 }
     // -------------------- VIEW USERS --------------------
     private void viewUsers() {
-        if (users.isEmpty()) {
+        if (users.isEmpty()) { //a method that returns a boolean (true or false)
             System.out.println("No accounts yet.");
             return;
         }
@@ -106,7 +106,7 @@ private void addUser() {
         }
 
         int id = readInt("Enter ID to delete: ");
-        Person found = findUser(id);
+        Person found = findUser(id); //found will hold an object of the Person class
 
         if (found == null) {
             System.out.println("Account not found.");
@@ -238,7 +238,7 @@ private void editUser(Person person) {
             System.out.println("Error! Contact number must be numeric.");
             continue;
         }
-        long contact;
+        long contact; // long can store numerical data higher than 10
         try {
             contact = Long.parseLong(cnumInput);
         } catch (NumberFormatException e) {
@@ -287,14 +287,14 @@ private void editUser(Person person) {
 }
 
     // -------------------- FIND USER --------------------
-    private Person findUser(int id) {
+    private Person findUser(int id) { //looks for matching id
         for (Person p : users) {
             if (p.getID() == id) return p;
         }
         return null;
     }
 
-    public Person getUserByFullName(String fullName){
+    public Person getUserByFullName(String fullName){ //looks for matching full name
         for (Person p : users) {
             String name = p.getFname() + " " + p.getMname() + " " + p.getLname();
             if (name.equalsIgnoreCase(fullName)) 
@@ -303,7 +303,7 @@ private void editUser(Person person) {
         return null;
     }
     // -------------------- SAFE INPUT METHODS --------------------
-    private int readInt(String prompt) {
+    private int readInt(String prompt) { //safe method to get an integer; keeps asking until the user enters a valid number.
         while (true) {
             try {
                 System.out.print(prompt);
@@ -314,13 +314,13 @@ private void editUser(Person person) {
         }
     }
 
-    private String readString(String prompt) {
+    private String readString(String prompt) { //get a string from the user
         System.out.print(prompt);
         return input.nextLine();
     }
 
     // -------------------- NAME VALIDATION (NO NUMBERS) --------------------
-    private String readName(String prompt) {
+    private String readName(String prompt) { //Cant contain  numbers
         while (true) {
             System.out.print(prompt);
             String value = input.nextLine();
@@ -333,7 +333,7 @@ private void editUser(Person person) {
         }
     }
 
-    private String readUniqueName(String prompt, Person current, String field) {
+    private String readUniqueName(String prompt, Person current, String field) { // cant contain numbers and checks if it is unique in the list
         while (true) {
             System.out.print(prompt);
             String value = input.nextLine();
@@ -367,7 +367,7 @@ private void editUser(Person person) {
     }
 
     // -------------------- EMAIL VALIDATION --------------------
-    private String readUniqueEmail() {
+    private String readUniqueEmail() { // must contain @ and checks if email inputted is unique
         while (true) {
             System.out.print("Enter Email Address: ");
             String email = input.nextLine();
@@ -388,7 +388,7 @@ private void editUser(Person person) {
     }
 
     // -------------------- CONTACT NUMBER VALIDATION --------------------
-    private long readUniqueContact() {
+    private long readUniqueContact() { // should not have letters and checks if contact number is unique
         while (true) {
             System.out.print("Enter Contact Number: ");
             String num = input.nextLine();
